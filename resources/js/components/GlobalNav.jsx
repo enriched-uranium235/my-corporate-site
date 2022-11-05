@@ -8,7 +8,7 @@ function GlobalNav () {
     if (localStorage.getItem('auth_token')){
         AuthButtons = (
             <li className="list">
-                <Link className="absolute" to="/contact">
+                <Link className="absolute" to="/stafflist">
                     <span className="icon"><ion-icon name="people-outline"></ion-icon></span>
                     <span className="nav-title">Staff Management/スタッフ管理</span>
                 </Link>

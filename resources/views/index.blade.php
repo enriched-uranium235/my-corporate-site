@@ -30,4 +30,9 @@
     fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
 </script>
+<script>
+jQuery('.link').click(function() {
+    location.href = jQuery(this).attr('data-url');
+});
+</script>
 @endsection

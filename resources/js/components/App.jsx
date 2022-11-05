@@ -13,6 +13,7 @@ import Contact from './Contact';
 import Footer from './Footer';
 import Register from './Register';
 import Login from './Login';
+import StaffList from './Admin/StaffManagement/StaffList';
 import axios from 'axios';
 
 axios.defaults.baseURL = "http://localhost:8000/";
@@ -56,6 +57,9 @@ function App(){
                 </Route>
                 <Route path="/login">
                     <Login />
+                </Route>
+                <Route path="/stafflist">
+                    <StaffList />
                 </Route>
             </Switch>
             <Footer />

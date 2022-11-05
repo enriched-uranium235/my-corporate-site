@@ -79,6 +79,7 @@
 
         @yield('content')
     </div>
+    <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/2.5.1/less.min.js"></script>
     @yield('script')
 </body>
