@@ -68,25 +68,27 @@ class StaffController extends Controller
             $response['message'] = $e->getMessage();
             $response['success'] = false;
         }
+
+        return $response;
     }
 
-    public function update($id) {
+    public function update(Request $request, $id) {
         try {
             if ($request->image!=null){
                 $image_path = $request->file('image')->store('public/pdf');
                 $update = Staff::find($id);
-                $update->name = $request->name;
-                $update->position = $request->position;
-                $update->age = $request->age;
-                $update->content = $request->content;
+                $update->name = $request->name != '' ? $request->name : $update->name;
+                $update->position = $request->position != '' ? $request->position : $update->position;
+                $update->age = $request->age != '' ? $request->age : $update->age;
+                $update->content = $request->content != '' ? $request->content : $update->content;
                 $update->image = basename($image_path);
                 $update->save();
             } else {
                 $update = Staff::find($id);
-                $update->name = $request->name;
-                $update->position = $request->position;
-                $update->age = $request->age;
-                $update->content = $request->content;
+                $update->name = $request->name != '' ? $request->name : $update->name;
+                $update->position = $request->position != '' ? $request->position : $update->position;
+                $update->age = $request->age != '' ? $request->age : $update->age;
+                $update->content = $request->content != '' ? $request->content : $update->content;
                 $update->save();
             }
 
@@ -116,5 +118,7 @@ class StaffController extends Controller
             $response['message'] = $e->getMessage();
             $response['success'] = false;
         }
+
+        return $response;
     }
 }

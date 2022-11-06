@@ -14,6 +14,8 @@ import Footer from './Footer';
 import Register from './Register';
 import Login from './Login';
 import StaffList from './Admin/StaffManagement/StaffList';
+import StaffAdd from './Admin/StaffManagement/StaffAdd';
+import StaffEdit from './Admin/StaffManagement/StaffEdit';
 import axios from 'axios';
 
 axios.defaults.baseURL = "http://localhost:8000/";
@@ -60,6 +62,12 @@ function App(){
                 </Route>
                 <Route path="/stafflist">
                     <StaffList />
+                </Route>
+                <Route path="/staffadd">
+                    <StaffAdd />
+                </Route>
+                <Route path="/staffedit">
+                    <StaffEdit />
                 </Route>
             </Switch>
             <Footer />

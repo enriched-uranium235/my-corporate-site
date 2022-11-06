@@ -27,3 +27,6 @@ Route::middleware('auth:sanctum')->group(function() {
 });
 
 Route::get('/staff_list', '\App\Http\Controllers\API\StaffController@index');
+Route::post('/staff_add', '\App\Http\Controllers\API\StaffController@create');
+Route::get('/staff_detail/{id}', '\App\Http\Controllers\API\StaffController@get');
+Route::post('/staff_edit/{id}', '\App\Http\Controllers\API\StaffController@update');

@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
+import {Link} from 'react-router-dom';
 
 function StaffList(){
 
@@ -14,7 +15,7 @@ function StaffList(){
     })
 
     for(var i in staff_list){
-        var url = "/staffdetail/"+staff_list[i].id;
+        var url = "/staffedit/"+staff_list[i].id;
         list.push(<tr className="link" data-url={url}><td>{staff_list[i].name}</td><td>{staff_list[i].position}</td><td>{staff_list[i].age}</td><td>{staff_list[i].content}</td><td><a className="btn btn-primary" href={url}>編集</a></td></tr>)
     }
 
@@ -32,7 +33,11 @@ function StaffList(){
                                 <th>役職</th>
                                 <th>年齢</th>
                                 <th>自己紹介文</th>
-                                <th></th>
+                                <th>
+                                    <Link className="btn btn-primary" to="/staffadd">
+                                        <span>追加</span>
+                                    </Link>
+                                </th>
                             </tr>
                         </thead>
                         <tbody>
