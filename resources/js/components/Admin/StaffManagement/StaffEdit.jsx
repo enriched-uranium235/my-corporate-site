@@ -28,6 +28,26 @@ function StaffEdit() {
         setStaff({...StaffInput, [e.target.name]: e.target.value});
     }
 
+    
+    const deleteData = async(e) =>{
+        //リンク移動の無効化
+        e.preventDefault()
+        //削除処理
+        axios.get('/sanctum/csrf-cookie').then(response => {
+            axios.post(`api/staff_delete/${id}`).then(res => {
+                if(res.status === 200){
+                    swal("スタッフの情報を削除しました。", res.data.message, "success");
+                    history.push('/stafflist');
+                    location.reload();
+                } else if (res.status === 401){
+                    swal("注意", res.data.message, "warning");
+                } else {
+                    swal("失敗", res.data.message, "error");
+                }
+            });
+        });
+    }
+
     const staffSubmit = (e) => {
         e.preventDefault();
 
@@ -84,6 +104,7 @@ function StaffEdit() {
                             </div>
                         </form>
                     </div>
+                    <button className="btn btn-danger" onClick={deleteData}>Delete</button>
                 </div>
             </div>
         </div>
